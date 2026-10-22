@@ -30,7 +30,7 @@ include_once 'header.php';
                     echo '   <span class="status-badge ' . $statusClass . '">' . ucfirst($item['status']) . '</span>';
                     echo '   <h2>' . htmlspecialchars($item['title']) . '</h2>';
                     echo '   <p class="description">' . htmlspecialchars($item['description']) . '</p>';
-                    
+                    echo '   <p class="location">Location: ' . htmlspecialchars($item['location']) . '</p>';
                     echo '</div>';
                 }
 
