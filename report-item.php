@@ -1,5 +1,4 @@
 <?php
-include_once "config.php";
 include_once "header.php";
 
 if (isset($_POST["title"], $_POST["description"], $_POST["location"], $_POST["status"])) {
@@ -9,10 +8,10 @@ if (isset($_POST["title"], $_POST["description"], $_POST["location"], $_POST["st
     $status = $_POST["status"];
 
 
-    $query = $pdo->prepare("INSERT INTO items (title, description, location, status) VALUES (?,?,?,?)");
+    $query = $pdo->prepare("INSERT INTO items (title, description, location, status,user_id) VALUES (?,?,?,?)");
 
     $stmt = $pdo->prepare("$query");
-    $stmt->execute([$title, $description, $location, $status]);
+    $stmt->execute([$title, $description, $location, $status, $_SESSION['user_id']]);
 
 
     if ($stmt->execute([$title, $description, $location, $status])) {
