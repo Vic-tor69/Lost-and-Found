@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <label>Phone Number :</label>
     <input type="text" name="phone" required>
     <br>
-    <button type="submit">Register</button>
+    <button class="btn-1" type="submit">Register</button>
 </form>
 </body>
 

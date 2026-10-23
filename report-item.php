@@ -25,7 +25,7 @@ if (isset($_POST["title"], $_POST["description"], $_POST["location"], $_POST["st
     }
 }
 ?>
-<form action="report-item.php" method="post" class="register-form">
+<form action="report-item.php" method="post" class="report-form">
     <label>Title :</label>
     <input type="text" name="title" required>
     <br>
