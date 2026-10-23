@@ -11,7 +11,7 @@ include_once 'header.php';
         <?php
         try {
             // Sql query to fetch all items from the database, ordered by the most recent first
-            $query = "SELECT title, description, location,status FROM items ORDER BY id DESC";
+            $query = "SELECT id, title, description, location,status FROM items WHERE status = 'lost' OR status ='found' ORDER BY id DESC";
             $stmt = $pdo->prepare($query);
             $stmt->execute();
 
@@ -22,11 +22,12 @@ include_once 'header.php';
 
                 // 5. Loop through each item and generate the HTML dynamically
                 foreach ($items as $item) {
-                    // Turn "lost" or "found" into a neat CSS class name for styling
+
                     $statusClass = ($item['status'] == 'lost') ? 'status-lost' : 'status-found';
 
-                    echo '<div class="item-card">';
+                    echo '<div class="item-card" onclick="navigateTo(\'view-item.php?id=' . $item['id'] . '\')">';
                     echo '   <span class="status-badge ' . $statusClass . '">' . ucfirst($item['status']) . '</span>';
+                    echo '   <hr>';
                     echo '   <h2>' . htmlspecialchars($item['title']) . '</h2>';
                     echo '   <p class="description">' . htmlspecialchars($item['description']) . '</p>';
                     echo '   <p class="location">Location: ' . htmlspecialchars($item['location']) . '</p>';
@@ -34,8 +35,8 @@ include_once 'header.php';
                 }
 
             } else {
-                // What to show if the database table is completely empty
-                echo '<p class="no-items">No items have been reported yet.</p>';
+
+                echo '<p>No items have been reported yet.</p>';
             }
 
         } catch (PDOException $e) {
@@ -44,5 +45,9 @@ include_once 'header.php';
         ?>
     </div>
 </main>
-
+<script>
+    function navigateTo(page) {
+        window.location.href = page;
+    }
+</script>
 </html>

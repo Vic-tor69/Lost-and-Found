@@ -1,6 +1,11 @@
 <?php
 include_once "header.php";
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
 if (isset($_POST["title"], $_POST["description"], $_POST["location"], $_POST["status"])) {
     $title = $_POST["title"];
     $description = $_POST["description"];
@@ -8,20 +13,19 @@ if (isset($_POST["title"], $_POST["description"], $_POST["location"], $_POST["st
     $status = $_POST["status"];
 
 
-    $query = $pdo->prepare("INSERT INTO items (title, description, location, status,user_id) VALUES (?,?,?,?)");
-
+    $query = "INSERT INTO items (title, description, location, status,user_id) VALUES (?,?,?,?,?)";
     $stmt = $pdo->prepare("$query");
-    $stmt->execute([$title, $description, $location, $status, $_SESSION['user_id']]);
+    $stmt = $stmt->execute([$title, $description, $location, $status, $_SESSION['user_id']]);
 
 
-    if ($stmt->execute([$title, $description, $location, $status])) {
+    if ($stmt) {
         echo "<p>Item reported successfully!</p>";
     } else {
         echo "<p>Error reporting item. Please try again.</p>";
     }
 }
 ?>
-<form action="report-item" method="post">
+<form action="report-item.php" method="post" class="register-form">
     <label>Title :</label>
     <input type="text" name="title" required>
     <br>

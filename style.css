@@ -4,20 +4,68 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-decoration: none;
 }
 
-h1{
-    font-family: sans-serif;
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
-
-.btn-1{
+.home-bt-ctn{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.btn-1 {
     color: white;
     background-color: #007bff;
-    font-family: sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
     border-radius: 3px;
     border-color: #007bff;
     cursor: pointer;
-    
+
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*.listings-main{
+    text-align: center;
+}*/
+
+.listings-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    padding: 20px 0;
+}
+
+
+.item-card {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+.item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.status-lost{
+    color: red;
+}
+.status-found{
+    color: blue;
+}
+.register-form{
+    display: flex;
+    align-items: center;
+    border:2px black dotted;
+    border-radius: 2px;
 }
