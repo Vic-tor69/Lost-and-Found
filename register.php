@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 //225084644@nust.na civ321
 ?>
-<form action="register.php" method="post">
+<form action="register.php" method="post" class="register-form">
     <label>Student Email :</label>
     <input type="text" name="email" required>
     <br>

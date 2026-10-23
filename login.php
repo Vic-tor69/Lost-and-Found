@@ -31,7 +31,7 @@ if (isset($_POST['studentNum'], $_POST['password'])) {
     <title>Document</title>
 </head>
 <body>
-    <form action="login.php" method="POST">
+    <form action="login.php" method="POST" class="login-form">
         <label>Email :</label>
         <input type="email" name="studentNum" required>
         <br>

@@ -1,10 +1,14 @@
 nav {
-    background-color: #333;
+    background-color: blue;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+}
+.nav-links a{
     text-decoration: none;
+
 }
 
 h1 {
@@ -18,17 +22,18 @@ h1 {
 }
 .btn-1 {
     color: white;
-    background-color: #007bff;
+    background-color: blue;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
     border-radius: 3px;
-    border-color: #007bff;
+    border-color: blue;
     cursor: pointer;
 
 }
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 }
 
 /*.listings-main{
@@ -65,7 +70,11 @@ body {
 }
 .register-form{
     display: flex;
-    align-items: center;
-    border:2px black dotted;
-    border-radius: 2px;
+    justify-content: flex-start;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: black;
+    size: 1000px;
 }
